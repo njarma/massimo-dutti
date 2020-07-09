@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  ambientes: {
+        desarrolloMock: {
+          apiUrlBase: 'app/mocks/',
+          esMock: true
+        },
+        apiDevelop: {
+            apiUrlBase: 'https://swapi.co/api/'
+        },
+        seleccionado: 'apiDevelop'
+      }
 };
 
 /*

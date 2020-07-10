@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService.Login(this.User.username, this.User.password, (result) => {
       if (result && result.success) {
         this.authenticationService.SetCredentials(this.User.username, this.User.password);
-        this.router.navigate([`starships`]);
+        this.router.navigate([`ships`]);
         // this.spinnerService.setShowSpinner(false);
       } else {
         // console.error(result.message);
@@ -57,22 +57,5 @@ export class LoginComponent implements OnInit {
 
     });
   }
-
-/*
-
-function login() {
-    vm.dataLoading = true;
-    AuthenticationService.Login(vm.username, vm.password, function (response) {
-        if (response.success) {
-            AuthenticationService.SetCredentials(vm.username, vm.password);
-            $location.path('/ships');
-        } else {
-            FlashService.Error(response.message);
-            vm.dataLoading = false;
-        }
-    });
-};
-
-*/
 
 }

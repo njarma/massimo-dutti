@@ -1,0 +1,17 @@
+@import '../../../styles.scss';
+
+button.login {
+    background-color: $login-button;
+    border: 0;
+    &:hover {
+        background-color: $login-button-hover;
+    };
+}
+
+button.create {
+    background-color: $black;
+    border: 0;
+    &:hover {
+        background-color: $create-button-hover;
+    };
+}

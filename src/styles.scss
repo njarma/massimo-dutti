@@ -31,5 +31,22 @@ $massimo-dutti-theme: mat-light-theme($massimo-dutti-primary, $massimo-dutti-acc
 // Colors
 $grey-dark: #858585;
 $black: #000000;
+$login-button: #B99D6B;
+$login-button-hover: #CEBA97;
+$create-button-hover: #848686;
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.with-100 {
+    width: 100%;
+}
+
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

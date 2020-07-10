@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.model';
 import { Observable, of } from 'rxjs';
-import { ToasterService } from 'angular2-toaster';
+// import { ToasterService } from 'angular2-toaster';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserLocalStorageService {
 
-  constructor(private toaster: ToasterService) { }
+  // constructor(private toaster: ToasterService) { }
+  constructor() { }
 
   GetAll(): Observable<User[]> {
     return of(this.getUsers());
@@ -25,12 +26,13 @@ export class UserLocalStorageService {
   }
 
   Create(user: User) {
-    setTimeout(() => {
+      setTimeout(() => {
       this.GetByUsername(user.username).subscribe(
         duplicateUser => {
-          if (duplicateUser !== null) {
-            this.toaster.pop('error', 'Duplicate user', `Username ${user.username} is already taken`);
-        } else {
+          if (duplicateUser) {
+            console.error(`Username ${user.username} is already taken`);
+            // this.toaster.pop('error', 'Duplicate user', `Username ${user.username} is already taken`);
+          } else {
             const users = this.getUsers();
 
             // assign id
@@ -43,7 +45,7 @@ export class UserLocalStorageService {
           }
         });
 
-    }, 1000);
+      }, 1000);
   }
 
   Update(user: User) {
@@ -64,7 +66,7 @@ export class UserLocalStorageService {
   }
 
   Delete(id: number) {
-    const users = this.getUsers()
+    const users = this.getUsers();
 
     for (let i = 0; i < users.length; i++) {
       const user = users[i];

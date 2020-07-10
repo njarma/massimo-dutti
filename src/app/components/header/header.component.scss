@@ -1,0 +1,12 @@
+@import '../../../styles.scss';
+
+a.option-menu {
+    text-decoration: none;
+    color: $black;
+    &:hover {
+        color: $grey-dark;
+    }
+    /* &:active {
+        text-decoration: underline;
+    } */
+  }

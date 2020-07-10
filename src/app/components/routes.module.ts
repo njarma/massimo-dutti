@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { ShipsComponent } from './ships/ships.component';
 import { StarshipComponent } from './ships/starships-list/starship/starship.component';
 import { StarshipsListComponent } from './ships/starships-list/starships-list.component';
+import { SharedModule } from '../shared/shared.module';
 
 export const routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -21,10 +22,18 @@ export const routes = [
 
 @NgModule({
     imports: [
+        SharedModule,
         RouterModule.forRoot(routes, { useHash: true })
     ],
     exports: [
         RouterModule
+    ],
+    declarations: [
+        LoginComponent,
+        RegisterComponent,
+        ShipsComponent,
+        StarshipsListComponent,
+        StarshipComponent
     ]
 })
 

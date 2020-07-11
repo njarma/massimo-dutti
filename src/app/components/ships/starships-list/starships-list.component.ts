@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ShipsService } from '../../../services/ships.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { ImageService } from '../../../services/image.service';
 
 @Component({
   selector: 'app-starships-list',
@@ -8,12 +8,25 @@ import { ShipsService } from '../../../services/ships.service';
 })
 export class StarshipsListComponent implements OnInit {
 
-  constructor(private shipService: ShipsService) { }
+  @Input() starshipList: any[];
+  constructor(private imageService: ImageService) { }
 
   ngOnInit(): void {
-     this.shipService.GetStarships().subscribe(data => {
-      console.log(data);
-    });
+    console.log(this.starshipList);
   }
+
+  getShipId(url: string) {
+    const id = Number(url.split('/').filter(x => {
+                      return x !== '';
+                  }).slice(-1)[0]);
+    return id;
+  }
+
+  getShipImage(id: number) {
+    const image = this.imageService.getShipImage(id);
+    return image;
+  }
+
+
 
 }

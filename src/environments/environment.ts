@@ -10,7 +10,8 @@ export const environment = {
           esMock: true
         },
         apiDevelop: {
-            apiUrlBase: 'https://swapi.co/api/'
+            apiUrlBase: 'https://swapi.dev/api/',
+            imageUrlBase: 'https://starwars-visualguide.com/assets/img/starships/'
         },
         seleccionado: 'apiDevelop'
       }

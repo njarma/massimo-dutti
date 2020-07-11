@@ -25,6 +25,8 @@ $massimo-dutti-theme: mat-light-theme($massimo-dutti-primary, $massimo-dutti-acc
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($massimo-dutti-theme);
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* You can add global styles to this file, and also import other style files */
 
@@ -47,6 +49,36 @@ $create-button-hover: #848686;
     width: 100%;
 }
 
+.responsive {
+    padding: 0 10px 20px 0;
+    float: left;
+    width: 24.99999%;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 700px) {
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .responsive {
+        padding-left: 10px;
+        width: 100%;
+    }
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+div.gallery {
+    border: 1px solid #ccc;
+}

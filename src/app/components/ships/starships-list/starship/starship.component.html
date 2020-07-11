@@ -1,1 +1,2 @@
-<p>starship works!</p>
+<img [src]="starshipImage" onerror="this.src='assets/img/image-not-available.png';" *ngIf="starshipImage" width="600" height="400" alt="">
+<div class="desc" *ngIf="starshipName">{{ starshipName }}</div>

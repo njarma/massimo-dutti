@@ -13,7 +13,6 @@ export class PlanetsListComponent implements OnInit {
   constructor(private imageService: ImageService) { }
 
   ngOnInit(): void {
-    console.log(this.planetList);
   }
 
   getPlanetId(url: string) {

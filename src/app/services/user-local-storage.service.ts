@@ -31,10 +31,7 @@ export class UserLocalStorageService {
       this.GetByUsername(user.username).subscribe(
         duplicateUser => {
           if (duplicateUser) {
-            console.error(`Username ${user.username} is already taken`);
             response = { success: false, message: `Username ${user.username} is already taken` };
-
-            // this.toaster.pop('error', 'Duplicate user', `Username ${user.username} is already taken`);
           } else {
             const users = this.getUsers();
 
@@ -46,9 +43,8 @@ export class UserLocalStorageService {
             users.push(user);
             this.setUsers(users);
             response = { success: true };
-
-            callback(response);
           }
+          callback(response);
         });
 
       }, 1000);
@@ -61,12 +57,6 @@ export class UserLocalStorageService {
                           return user;
                         }
                       });
-    /* for (let i = 0; i < users.length; i++) {
-      if (users[i].id === user.id) {
-          users[i] = user;
-          break;
-      }
-    } */
 
     this.setUsers(users);
   }

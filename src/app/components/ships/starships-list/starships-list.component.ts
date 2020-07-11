@@ -13,7 +13,6 @@ export class StarshipsListComponent implements OnInit {
   constructor(private imageService: ImageService) { }
 
   ngOnInit(): void {
-    console.log(this.starshipList);
   }
 
   getShipId(url: string) {

@@ -5,6 +5,7 @@ import { AuthenticationService } from '../../services/authentication.service';
 import { Router } from '@angular/router';
 import { UserLocalStorageService } from '../../services/user-local-storage.service';
 import { SpinnerService } from '../../services/spinner.service';
+import { ToasterService } from 'angular2-toaster/angular2-toaster';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private authenticationService: AuthenticationService,
               private router: Router,
-              private userService: UserLocalStorageService,
+              private toasterService: ToasterService,
               private spinnerService: SpinnerService) { }
 
   ngOnInit(): void {
@@ -43,7 +44,7 @@ export class LoginComponent implements OnInit {
         this.spinnerService.setShowSpinner(false);
         this.router.navigate([`ships`]);
       } else {
-        // Toastr result.message
+        this.toasterService.pop('error', 'Error', result.message);
         this.spinnerService.setShowSpinner(false);
       }
 

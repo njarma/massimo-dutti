@@ -23,10 +23,8 @@ export class AuthenticationService {
         this.userService.GetByUsername(username).subscribe(
           data => {
             if (data && data.password === password) {
-              console.log('Success');
               response = { success: true };
             } else {
-              console.error('Username or password is incorrect');
               response = { success: false, message: 'Username or password is incorrect' };
             }
             callback(response);

@@ -4,6 +4,7 @@ import { User } from 'src/app/models/user.model';
 import { Router } from '@angular/router';
 import { UserLocalStorageService } from '../../services/user-local-storage.service';
 import { SpinnerService } from '../../services/spinner.service';
+import { ToasterService } from 'angular2-toaster/angular2-toaster';
 
 @Component({
   selector: 'app-register',
@@ -20,7 +21,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(private router: Router,
               private userService: UserLocalStorageService,
-              private spinnerService: SpinnerService) { }
+              private spinnerService: SpinnerService,
+              private toasterService: ToasterService) { }
 
   ngOnInit(): void {
   }
@@ -39,11 +41,12 @@ export class RegisterComponent implements OnInit {
 
     this.userService.Create(this.User, (result) => {
       if (result && result.success) {
-        // Toastr Registration successful
+        this.toasterService.pop('success', 'Success', 'Registration successful');
         this.spinnerService.setShowSpinner(false);
         this.router.navigate([`login`]);
       } else {
         // Toastr result.message
+        this.toasterService.pop('error', 'Error', result.message);
         this.spinnerService.setShowSpinner(false);
       }
     });

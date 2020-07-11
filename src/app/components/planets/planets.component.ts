@@ -11,21 +11,21 @@ import { PlanetService } from '../../services/planet.service';
 export class PlanetsComponent implements OnInit {
 
   lastResponse: any;
-  planets: any[];
+  planets: any[] = [];
   constructor(private planetService: PlanetService,
               private generalService: GeneralService) { }
 
   ngOnInit(): void {
-    this.GetStarships();
+    this.GetPlanets();
   }
 
-  GetStarships() {
+  GetPlanets() {
     const url = (this.lastResponse && this.lastResponse.next)
                   ? this.generalService.insertCaracter(this.lastResponse.next, 4, 's')
                   : resources.Starships.url;
 
     this.planetService.GetPlanets(url).subscribe(data => {
-      this.planets = data.results;
+      this.planets = this.planets.concat(data.results);
       this.lastResponse = data;
     });
   }

@@ -11,7 +11,7 @@ import { GeneralService } from '../../services/general.service';
 export class ShipsComponent implements OnInit {
 
   lastResponse: any;
-  starships: any[];
+  starships: any[] = [];
   constructor(private shipService: ShipService,
               private generalService: GeneralService) { }
 
@@ -25,7 +25,7 @@ export class ShipsComponent implements OnInit {
                   : resources.Starships.url;
 
     this.shipService.GetStarships(url).subscribe(data => {
-      this.starships = data.results;
+      this.starships = this.starships.concat(data.results);
       this.lastResponse = data;
     });
   }

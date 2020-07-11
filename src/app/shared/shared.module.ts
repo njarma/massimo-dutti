@@ -12,6 +12,7 @@ import {
     MatIconModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { NgxScrollTopModule } from 'ngx-scrolltop';
 
 @NgModule({
   declarations: [],
@@ -27,7 +28,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatInputModule,
     MatFormFieldModule,
     MatCheckboxModule,
-    MatIconModule
+    MatIconModule,
+    NgxScrollTopModule
   ],
   exports: [
     BrowserModule,
@@ -41,7 +43,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatInputModule,
     MatFormFieldModule,
     MatCheckboxModule,
-    MatIconModule
+    MatIconModule,
+    NgxScrollTopModule
   ]
 })
 export class SharedModule { }

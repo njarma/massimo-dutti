@@ -82,3 +82,19 @@ div.gallery img {
 div.gallery {
     border: 1px solid #ccc;
 }
+
+button.btn-brown {
+    background-color: $login-button;
+    border: 0;
+    &:hover {
+        background-color: $login-button-hover;
+    };
+}
+
+button.btn-black {
+    background-color: $black;
+    border: 0;
+    &:hover {
+        background-color: $create-button-hover;
+    };
+}

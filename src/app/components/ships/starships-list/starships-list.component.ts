@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ImageService } from '../../../services/image.service';
 import { resources } from '../../../configs/api-resources.config';
+import { MatDialog } from '@angular/material';
+import { StarshipComponent } from './starship/starship.component';
 
 @Component({
   selector: 'app-starships-list',
@@ -10,7 +12,8 @@ import { resources } from '../../../configs/api-resources.config';
 export class StarshipsListComponent implements OnInit {
 
   @Input() starshipList: any[];
-  constructor(private imageService: ImageService) { }
+  constructor(private imageService: ImageService,
+              public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -28,4 +31,15 @@ export class StarshipsListComponent implements OnInit {
     return image;
   }
 
+  openDialog(starship: any) {
+    const dialogRef = this.dialog.open(StarshipComponent, {
+      width: '850px',
+      minWidth: '30%',
+      disableClose: true,
+      data: {
+        starship
+      }
+    });
+
+  }
 }

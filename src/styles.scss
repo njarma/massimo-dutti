@@ -37,6 +37,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 // Colors
 $grey-dark: #858585;
 $black: #000000;
+$white: #FFFFFF;
 $login-button: #B99D6B;
 $login-button-hover: #CEBA97;
 $create-button-hover: #848686;
@@ -116,4 +117,16 @@ button.btn-black {
     &:hover {
         background-color: $create-button-hover;
     };
+}
+
+.text-black {
+    color: $black;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.float-right {
+    float:right;
 }

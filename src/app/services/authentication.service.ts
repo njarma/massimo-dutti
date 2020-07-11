@@ -50,7 +50,7 @@ export class AuthenticationService {
       localStorage.removeItem(this.EXPIRATION);
   }
 
-  private getCurrentUser() {
+  public getCurrentUser() {
     const currentUser = localStorage.getItem(this.CURRENT_USER);
 
     if (!currentUser) {
@@ -58,6 +58,7 @@ export class AuthenticationService {
     }
     return currentUser;
   }
+
 
   getIsAuth() {
     const authInformation = this.getCurrentUser();

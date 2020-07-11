@@ -40,6 +40,10 @@ export const routes = [
         PlanetsComponent,
         PlanetsListComponent,
         PlanetComponent
+    ],
+    entryComponents: [
+        StarshipComponent,
+        PlanetComponent
     ]
 })
 

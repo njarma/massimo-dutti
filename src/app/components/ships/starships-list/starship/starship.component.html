@@ -1,2 +1,107 @@
-<img [src]="starshipImage" onerror="this.src='assets/img/image-not-available.png';" *ngIf="starshipImage" width="600" height="400" alt="">
-<div class="desc" *ngIf="starshipName">{{ starshipName }}</div>
+<div class="container">
+    <div class="row justify-content-center">
+        <h2 class="h5">{{data.starship.name}}</h2>
+    </div>
+    <div class="row justify-content-center mb-2">
+        <div class="col-6">
+            <div class="row">
+                <div class="col-12 col-md-3 text-bold">Model</div>
+                <div class="col-12 col-md-9">{{data.starship.model}}</div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="row">
+                <div class="col-12 col-md-3 text-bold">Manufacturer</div>
+                <div class="col-12 col-md-9">{{data.starship.manufacturer}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center  mb-2">
+        <div class="col-6">
+            <div class="row">
+                <div class="col-12 col-md-3 text-bold">Cost</div>
+                <div class="col-12 col-md-9">{{data.starship.cost_in_credits}}</div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-12 col-md-3 text-bold">Length</div>
+                <div class="col-12 col-md-9">{{data.starship.length}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mb-2">
+        <div class="col-6">
+            <div class="row">
+                <div class="col-12 col-md-3 text-bold">Max speed</div>
+                <div class="col-12 col-md-9">{{data.starship.max_atmosphering_speed}}</div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-12 col-md-3 text-bold">Crew</div>
+                <div class="col-12 col-md-9">{{data.starship.crew}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mb-2">
+        <div class="col-6">
+            <div class="row">
+                <div class="col-12 col-md-3 text-bold">Passengers</div>
+                <div class="col-12 col-md-9">{{data.starship.passengers}}</div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-12 col-md-3 text-bold">Capacity</div>
+                <div class="col-12 col-md-9">{{data.starship.cargo_capacity}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mb-2">
+        <div class="col-6">
+            <div class="row">
+                <div class="col-12 col-md-3 text-bold">Consumables</div>
+                <div class="col-12 col-md-9">{{data.starship.consumables}}</div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-12 col-md-3 text-bold">Rating</div>
+                <div class="col-12 col-md-9">{{data.starship.hyperdrive_rating}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mb-2">
+        <div class="col-6">
+            <div class="row">
+                <div class="col-12 col-md-3 text-bold">MGLT</div>
+                <div class="col-12 col-md-9">{{data.starship.MGLT}}</div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-12 col-md-3 text-bold">Class</div>
+                <div class="col-12 col-md-9">{{data.starship.starship_class}}</div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row mt-3 float-right">
+        <div class="col-12">
+            <button type="button"
+            class="btn btn-outline-dark mr-2 button-width"
+            (click)="close()">
+            <i class="fa fa-arrow-circle-left mr-1"></i>
+            <span>Back</span>
+            </button>
+        </div>
+    </div>
+</div>

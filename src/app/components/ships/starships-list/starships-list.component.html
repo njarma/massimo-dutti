@@ -4,8 +4,9 @@
     </div>
     <div class="row justify-content-center">
         <div *ngFor="let starship of starshipList" class="col-lg-4 col-md-6 col-12 responsive">
-            <div class="gallery">
-                <app-starship [starshipName]="starship.name" [starshipImage]="getShipImage(getShipId(starship.url))"></app-starship>
+            <div class="gallery" style="cursor: pointer;" (click)="openDialog(starship)">
+                <img *ngIf="starship.url" [src]="getShipImage(getShipId(starship.url))" onerror="this.src='assets/img/image-not-available.png';" width="600" height="400" alt="">
+                <div class="desc" *ngIf="starship.name">{{ starship.name }}</div>
             </div>
         </div>
     </div>

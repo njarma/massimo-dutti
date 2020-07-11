@@ -5,10 +5,10 @@
     </div>
     <div class="col-4 align-right">
         <nav class="my-2 my-md-0 mr-md-3">
-          <a class="p-2 option-menu" [routerLink]="'login'" *ngIf="true">Login</a>
-          <a class="p-2 option-menu" href="#" *ngIf="false">Logout</a>
           <a class="p-2 option-menu" [routerLink]="'ships'">Starships</a>
-          <a class="p-2 option-menu" href="#">Planets</a>
+          <a class="p-2 option-menu" [routerLink]="'planets'">Planets</a>
+          <a class="p-2 option-menu" [routerLink]="'login'" *ngIf="!authService.getIsAuth()">Login</a>
+          <a class="p-2 option-menu" href="#" *ngIf="authService.getIsAuth()" (click)="logout()">Logout</a>
         </nav>
     </div>
   </div>

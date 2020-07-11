@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ImageService } from '../../../services/image.service';
+import { resources } from '../../../configs/api-resources.config';
 
 @Component({
   selector: 'app-starships-list',
@@ -23,10 +24,9 @@ export class StarshipsListComponent implements OnInit {
   }
 
   getShipImage(id: number) {
-    const image = this.imageService.getShipImage(id);
+    const imageUrl = resources.Starships.image.url;
+    const image = this.imageService.getImage(id, imageUrl);
     return image;
   }
-
-
 
 }

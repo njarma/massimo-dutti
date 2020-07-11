@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { ShipService } from 'src/app/services/ship.service';
 import { resources } from '../../configs/api-resources.config';
 import { GeneralService } from '../../services/general.service';
+import { PlanetService } from '../../services/planet.service';
 
 @Component({
-  selector: 'app-ships',
-  templateUrl: './ships.component.html',
-  styleUrls: ['./ships.component.scss']
+  selector: 'app-planets',
+  templateUrl: './planets.component.html',
+  styleUrls: ['./planets.component.scss']
 })
-export class ShipsComponent implements OnInit {
+export class PlanetsComponent implements OnInit {
 
   lastResponse: any;
-  starships: any[];
-  constructor(private shipService: ShipService,
+  planets: any[];
+  constructor(private planetService: PlanetService,
               private generalService: GeneralService) { }
 
   ngOnInit(): void {
@@ -24,8 +24,8 @@ export class ShipsComponent implements OnInit {
                   ? this.generalService.insertCaracter(this.lastResponse.next, 4, 's')
                   : resources.Starships.url;
 
-    this.shipService.GetStarships(url).subscribe(data => {
-      this.starships = data.results;
+    this.planetService.GetPlanets(url).subscribe(data => {
+      this.planets = data.results;
       this.lastResponse = data;
     });
   }

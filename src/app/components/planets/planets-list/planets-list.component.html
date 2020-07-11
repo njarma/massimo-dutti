@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <h2 class="h5">Planets</h2>
+    </div>
+    <div class="row justify-content-center">
+        <div *ngFor="let planet of planetList" class="col-lg-4 col-md-6 col-12 responsive">
+            <div class="gallery">
+                <app-planet [planetName]="planet.name" [planetImage]="getPlanetImage(getPlanetId(planet.url))"></app-planet>
+            </div>
+        </div>
+    </div>
+</div>

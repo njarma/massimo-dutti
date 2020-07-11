@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UserLocalStorageService } from './user-local-storage.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,8 @@ export class AuthenticationService {
   private readonly CURRENT_USER = 'currentUser';
   private readonly EXPIRATION = 'expiration';
 
-  constructor(private userService: UserLocalStorageService) { }
+  constructor(private userService: UserLocalStorageService,
+              private router: Router) { }
 
 
   /* Dummy authentication for testing, uses $timeout to simulate api call
@@ -50,6 +52,28 @@ export class AuthenticationService {
       localStorage.removeItem(this.EXPIRATION);
   }
 
+  private getCurrentUser() {
+    const currentUser = localStorage.getItem(this.CURRENT_USER);
+
+    if (!currentUser) {
+      return;
+    }
+    return currentUser;
+  }
+
+  getIsAuth() {
+    const authInformation = this.getCurrentUser();
+    if (!authInformation) {
+      return false;
+    }
+
+    return true;
+  }
+
+  logout() {
+    this.clearCredentials();
+    this.router.navigate(['login']);
+  }
 
 }
 

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './components/routes.module';
 import { HeaderComponent } from './components/header/header.component';
 import { SharedModule } from './shared/shared.module';
 import { InterceptorsModule } from './interceptors/interceptors.module';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { InterceptorsModule } from './interceptors/interceptors.module';
     SharedModule,
     InterceptorsModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

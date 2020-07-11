@@ -4,6 +4,7 @@ import { User } from 'src/app/models/user.model';
 import { AuthenticationService } from '../../services/authentication.service';
 import { Router } from '@angular/router';
 import { UserLocalStorageService } from '../../services/user-local-storage.service';
+import { SpinnerService } from '../../services/spinner.service';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private authenticationService: AuthenticationService,
               private router: Router,
-              private userService: UserLocalStorageService) { }
+              private userService: UserLocalStorageService,
+              private spinnerService: SpinnerService) { }
 
   ngOnInit(): void {
   }
@@ -36,10 +38,10 @@ export class LoginComponent implements OnInit {
   }
 
   Login(loginForm: NgForm) {
-    // this.spinnerService.setShowSpinner(true);
+    this.spinnerService.setShowSpinner(true);
 
     if (loginForm.form.invalid) {
-      // this.spinnerService.setShowSpinner(false);
+      this.spinnerService.setShowSpinner(false);
       return;
     }
     this.User.username = loginForm.form.value.username;
@@ -48,11 +50,11 @@ export class LoginComponent implements OnInit {
     this.authenticationService.Login(this.User.username, this.User.password, (result) => {
       if (result && result.success) {
         this.authenticationService.SetCredentials(this.User.username, this.User.password);
+        this.spinnerService.setShowSpinner(false);
         this.router.navigate([`ships`]);
-        // this.spinnerService.setShowSpinner(false);
       } else {
         // console.error(result.message);
-        // this.spinnerService.setShowSpinner(false);
+        this.spinnerService.setShowSpinner(false);
       }
 
     });

@@ -1,1 +1,58 @@
-<p>register works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <h2 class="h5">Register</h2>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-8 col-md-4 blanco">
+           <div>
+                <form class="myForm" (ngSubmit)="Register(registerForm)" #registerForm="ngForm">
+
+                    <mat-form-field class="with-100">
+                        <mat-label>First Name</mat-label>
+                        <input matInput type="text" placeholder="First Name" name="firstName" ngModel #firstNameInput="ngModel" required>
+                        <mat-error *ngIf="!firstNameInput.value">First Name is required</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="with-100">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput type="text" placeholder="Last Name" name="lastName" ngModel #lastNameInput="ngModel" required>
+                        <mat-error *ngIf="!lastNameInput.value">Last Name is required</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="with-100">
+                        <mat-label>Username</mat-label>
+                        <input matInput type="text" placeholder="Username" name="username" ngModel #usernameInput="ngModel" required>
+                        <mat-error *ngIf="!usernameInput.value">Username is required</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="with-100">
+                        <mat-label>Password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" name="password" ngModel #passwordInput="ngModel" required>
+                        <a mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </a>
+                        <mat-error *ngIf="!passwordInput.value">Password is required</mat-error>
+                        <mat-hint *ngIf="passwordInput.value && passwordInput.invalid">The specified password is invalid</mat-hint>
+                    </mat-form-field>
+
+                    <div class="row justify-content-end mt-3 mr-1">
+
+                        <button type="button"
+                                class="btn btn-outline-secondary mr-2 button-width"
+                                [routerLink]="'login'">
+                                <i class="fa fa-arrow-circle-left mr-2"></i>
+                                <strong>Go back</strong>
+                        </button>
+                        <button type="submit"
+                                class="btn btn-secondary btn-black text-white button-width">
+                                <strong>Register</strong>
+                        </button>
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>

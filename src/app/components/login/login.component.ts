@@ -27,16 +27,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  setUsuarioPrueba(loginForm) {
-    const me = {} as User;
-    me.username = loginForm.form.value.username;
-    me.password = loginForm.form.value.password;
-    me.firstName = Math.round((Math.random() * 100000) + 1).toString();
-    me.lastName = Math.round((Math.random() * 100000) + 1).toString();
-    me.id = Math.round((Math.random() * 100000) + 1);
-    this.userService.Create(me);
-  }
-
   Login(loginForm: NgForm) {
     this.spinnerService.setShowSpinner(true);
 
@@ -53,11 +43,15 @@ export class LoginComponent implements OnInit {
         this.spinnerService.setShowSpinner(false);
         this.router.navigate([`ships`]);
       } else {
-        // console.error(result.message);
+        // Toastr result.message
         this.spinnerService.setShowSpinner(false);
       }
 
     });
+  }
+
+  goToRegister() {
+    this.router.navigate([`register`]);
   }
 
 }

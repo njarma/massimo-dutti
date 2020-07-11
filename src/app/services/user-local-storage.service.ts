@@ -25,12 +25,15 @@ export class UserLocalStorageService {
     return of(filtered);
   }
 
-  Create(user: User) {
+  Create(user: User, callback: any) {
       setTimeout(() => {
+      let response;
       this.GetByUsername(user.username).subscribe(
         duplicateUser => {
           if (duplicateUser) {
             console.error(`Username ${user.username} is already taken`);
+            response = { success: false, message: `Username ${user.username} is already taken` };
+
             // this.toaster.pop('error', 'Duplicate user', `Username ${user.username} is already taken`);
           } else {
             const users = this.getUsers();
@@ -42,6 +45,9 @@ export class UserLocalStorageService {
             // save to local storage
             users.push(user);
             this.setUsers(users);
+            response = { success: true };
+
+            callback(response);
           }
         });
 

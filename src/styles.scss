@@ -31,6 +31,7 @@ $massimo-dutti-theme: mat-light-theme($massimo-dutti-primary, $massimo-dutti-acc
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+
 /* You can add global styles to this file, and also import other style files */
 
 // Colors
@@ -39,6 +40,21 @@ $black: #000000;
 $login-button: #B99D6B;
 $login-button-hover: #CEBA97;
 $create-button-hover: #848686;
+
+.mat-form-field.mat-focused {
+    .mat-form-field-label {
+        color: $black;
+    }
+    .mat-form-field-ripple {
+        background-color: $black;
+    }
+    .mat-form-field-required-marker {
+        color: $black;
+    }
+    .mat-input-element {
+        color: $black;
+    }
+}
 
 .align-center {
     text-align: center;

@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ApiUrlBaseService } from './api-url-base.service';
+import { ApiUrlBaseInterceptor } from './api-url-base.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpTokenService } from './http-token.service';
+import { HttpTokenInterceptor } from './http-token.interceptor';
+import { CachingInterceptor } from './caching.interceptor';
+import { RequestCacheService } from '../services/request.cache.service';
 
 @NgModule({
   declarations: [],
@@ -10,14 +12,20 @@ import { HttpTokenService } from './http-token.service';
     CommonModule
   ],
   providers: [
+    RequestCacheService,
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: ApiUrlBaseService,
+      useClass: ApiUrlBaseInterceptor,
       multi: true
     },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: HttpTokenService,
+      useClass: HttpTokenInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CachingInterceptor,
       multi: true
     }
   ]

@@ -15,4 +15,8 @@ npm install
 ng serve -o
 ```
 
-El proyecto se ejecutará en el puerto 4200 del localhost.Que la fuerza esté contigo!!
+El proyecto se ejecutará en el puerto 4200 del localhost.
+
+También podrá ingresar al sitio directamente desde el siguiente enlace: https://njarma.github.io/massimo-dutti
+
+Que la fuerza esté contigo!!
